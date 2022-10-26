@@ -7,6 +7,7 @@ import { Outlet } from "react-router-dom";
 import MusicPlayer from "./components/features/music-player";
 import classNames from "classnames";
 import logo from "./assets/react.svg";
+import TopPlay from "./components/features/top-play/top-play";
 
 const App = () => {
   const isDarkMode = useAppSelector((state) => state.appTheme.isDarkMode);
@@ -28,16 +29,17 @@ const App = () => {
       />
       <div
         className={classNames(
-          "flex h-screen w-screen flex-col",
+          "flex h-screen w-full flex-col md:flex-row relative",
           isDarkMode
-            ? "bg-gradient-to-r from-indigo-900 to-indigo-600"
+            ? "bg-gradient-to-r from-indigo-900 to-blue-500"
             : "bg-gradient-to-r from-sky-500 to-indigo-500"
         )}
       >
-        <Button onClick={changeAppTheme} asIconButton className="mx-auto w-12">
+        <Button onClick={changeAppTheme} asIconButton className="mx-auto w-12 absolute top-0 right-[480px] self-center z-10">
           {isDarkMode ? <MdLightMode size={32} /> : <MdDarkMode size={32} />}
         </Button>
         <Outlet />
+        <TopPlay />
         {activeSong?.title && <MusicPlayer />}
         <BottomNavbar
           iconLinks={[

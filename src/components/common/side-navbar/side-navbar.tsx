@@ -16,7 +16,7 @@ interface Props {
 const SideNavbar = ({ links, dataTestId, logo }: Props) => {
   return (
     <div
-      className="hidden w-60 flex-col bg-[#191624] px-4 py-10 sm:flex"
+      className="hidden w-60 flex-col bg-[#1e4172] px-4 py-10 sm:flex"
       data-testid={dataTestId}
     >
       <img src={logo} alt="Logo" className="w-full h-14 object-contain mb-4" />
