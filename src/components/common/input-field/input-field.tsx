@@ -1,9 +1,10 @@
 import classnames from "classnames";
+import { Dispatch, SetStateAction } from "react";
 
 interface Props {
   className?: string;
   dataTestId?: string;
-  onChange: () => void;
+  onChange: (e:any) => void | ((e:any) => Dispatch<SetStateAction<any>>);
   value?: string;
   defaultValue?: string;
   label?: string;
