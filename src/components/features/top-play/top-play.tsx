@@ -8,12 +8,14 @@ import { useGetTopChartsQuery } from "../../../redux/services/shazam-core";
 
 import "swiper/css";
 import "swiper/css/free-mode";
+import classNames from "classnames";
 
 const TopPlay = () => {
   const dispatch = useAppDispatch();
   const { isPlaying, activeSong } = useAppSelector(
     (state) => state.musicPlayer
   );
+  const isDarkMode = useAppSelector((state) => state.appTheme.isDarkMode);
   const { data } = useGetTopChartsQuery("");
 
   const handlePlayPauseSong = (song: any, data: any, i: number) => {
@@ -27,9 +29,16 @@ const TopPlay = () => {
   const topPlays = data?.slice(0, 5);
 
   return (
-    <div className="flex h-screen w-1/2 flex-col pt-10">
-      <div className="flex flex-col">
-        <h2 className="font-bold">Top Charts</h2>
+    <div className="flex h-full w-full sm:w-1/2 flex-col">
+      <div className="flex flex-col py-6">
+        <h2
+          className={classNames(
+            "font-bold",
+            isDarkMode ? "text-white" : "text-black"
+          )}
+        >
+          Top Charts
+        </h2>
         {topPlays?.map((song: any, i: number) => {
           const { images, title, key, subtitle } = song;
           return (
@@ -53,22 +62,21 @@ const TopPlay = () => {
         })}
       </div>
       <div className="flex flex-col">
-        <h2 className="font-bold">Top Artists</h2>
+        <h2 className={classNames(
+            "font-bold",
+            isDarkMode ? "text-white" : "text-black"
+          )}>Top Artists</h2>
         <div className="flex">
           <Swiper
             slidesPerView="auto"
             spaceBetween={15}
             freeMode
-            centeredSlides
             modules={[FreeMode]}
           >
             {topPlays?.map((song: any, i: number) => {
               const { images, title, key, subtitle } = song;
               return (
-                <SwiperSlide
-                  key={key}
-                  style={{width: "25%"}}
-                >
+                <SwiperSlide key={key} style={{ width: "25%" }}>
                   <img
                     src={images?.background}
                     alt="Artist"

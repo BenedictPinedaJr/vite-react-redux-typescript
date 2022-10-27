@@ -28,7 +28,7 @@ const DiscoverPage = () => {
   };
 
   return (
-    <div className="mx-4 flex h-[85%] sm:h-full w-full flex-col">
+    <div className="mx-4 flex h-[85%] sm:h-screen w-full flex-col">
       <h2
         className={classNames(
           "my-4 text-3xl font-bold",

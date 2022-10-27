@@ -29,13 +29,13 @@ const App = () => {
       />
       <div
         className={classNames(
-          "flex h-screen w-full flex-col md:flex-row relative",
+          "flex h-full w-full flex-col md:flex-row relative",
           isDarkMode
-            ? "bg-gradient-to-r from-indigo-900 to-blue-500"
-            : "bg-gradient-to-r from-sky-500 to-indigo-500"
+            ? "bg-gradient-to-r from-indigo-900 to-indigo-500"
+            : "bg-gradient-to-r from-sky-500 to-blue-500"
         )}
       >
-        <Button onClick={changeAppTheme} asIconButton className="mx-auto w-12 absolute top-0 right-[480px] self-center z-10">
+        <Button onClick={changeAppTheme} asIconButton className="mx-auto w-12 absolute top-0 right-0 md:right-[480px] self-center z-10">
           {isDarkMode ? <MdLightMode size={32} /> : <MdDarkMode size={32} />}
         </Button>
         <Outlet />

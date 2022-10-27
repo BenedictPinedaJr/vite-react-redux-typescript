@@ -19,7 +19,7 @@ const BottomNavbar = ({ iconLinks, dataTestId }: Props) => {
       className={classNames(
         "h-16 w-full rounded-3xl bg-gradient-to-br from-white/10 to-[#d2d2f6]",
         "fixed bottom-0 z-[100] my-4 shadow-md",
-        "flex items-center justify-evenly backdrop-blur-lg sm:hidden"
+        "flex items-center justify-evenly backdrop-blur-lg lg:hidden"
       )}
       data-testid={dataTestId}
     >
